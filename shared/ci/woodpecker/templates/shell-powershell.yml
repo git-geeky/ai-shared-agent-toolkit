@@ -1,0 +1,6 @@
+steps:
+  parse:
+    image: mcr.microsoft.com/powershell:lts-debian-12
+    commands:
+      - pwsh -NoProfile -Command "Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object { $null = [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$null) }"
+

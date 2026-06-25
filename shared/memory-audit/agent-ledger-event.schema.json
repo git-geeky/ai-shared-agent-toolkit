@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Ledger Event",
+  "type": "object",
+  "required": ["event_id", "event_type", "created_at"],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "type": "string",
+      "enum": ["route", "tool", "verification", "decision", "handoff"]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "repo": { "type": "string" },
+    "tool": { "type": "string" },
+    "summary": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["string", "number", "boolean", "null"]
+      }
+    }
+  },
+  "additionalProperties": false
+}
+
