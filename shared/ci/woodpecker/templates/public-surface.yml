@@ -1,0 +1,6 @@
+steps:
+  public-surface:
+    image: python:3.12-alpine
+    commands:
+      - python -m unittest discover -s tests
+      - python -m agent_toolkit.public_surface --root .
